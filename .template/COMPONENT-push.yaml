@@ -32,7 +32,12 @@ spec:
   taskRunTemplate:
     podTemplate:
       nodeSelector:
-        node-role.kubernetes.io/konflux-tenants: ''
+        konflux-ci.dev/storage: "nvme"
+      tolerations:
+        - key: konflux-ci.dev/storage
+          operator: "Equal"
+          value: "nvme"
+          effect: "NoSchedule"
   workspaces:
     - name: workspace-amd64
       volumeClaimTemplate:
