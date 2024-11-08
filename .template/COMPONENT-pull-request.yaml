@@ -35,6 +35,7 @@ spec:
     podTemplate:
       nodeSelector:
         konflux-ci.dev/storage: "nvme"
+      priorityClassName: konflux-default
       tolerations:
         - key: konflux-ci.dev/storage
           operator: "Equal"
